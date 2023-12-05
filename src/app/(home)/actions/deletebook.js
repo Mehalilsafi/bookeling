@@ -1,12 +1,14 @@
-import React from 'react'
-import supabase from '@/lib/supabase' 
+ 'use server'
+import supabase from '@/lib/supabase';
 
-export async function deletebook() {
+export async function deletebook(id) {
+  const { error } = await supabase
+    .from('book')
+    .delete()
+    .eq('id', id); 
 
-const { error } = await supabase
-.from('book')
-.delete()
-.eq('some_column', 'someValue')
-
-
+  if (error) {
+    console.error('Error deleting book:', error.message);
+  }
 }
+

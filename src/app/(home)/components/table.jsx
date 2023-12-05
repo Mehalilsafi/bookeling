@@ -43,8 +43,10 @@ const CustomTable = () => {
       
       console.log(book)
 
-      function handleSubmit(){
-       
+      function handleDelete(id){
+     
+        deletebook(id)
+        setBook((prevBooks) => prevBooks.filter((book) => book.id !== id));
       }
     return (
        
@@ -81,13 +83,12 @@ const CustomTable = () => {
                         </TableCell>
 
                         <TableCell className='flex items-center space-x-4'>
-                            <form action='post' onSubmit={handleSubmit}>
+                    
 
-                            <button className='py-3 px-5 bg-red-300 rounded-sm text-red-700 font-bold'>
+                            <button className='py-3 px-5 bg-red-300 rounded-sm text-red-700 font-bold'onClick={()=>handleDelete(e.id )}>
                                 Delete
                             </button>
 
-                            </form>
                             <UpdateBook bookId={e.id} />
                         </TableCell>
                     </TableRow>

@@ -31,9 +31,9 @@ const AddBook = () => {
    }
 
 
-    function handleSubmit(event){
+    async function handleSubmit(event){
       event.preventDefault()
-       addbook(formData)
+       await addbook(formData)
      }
     return (
         <div>
