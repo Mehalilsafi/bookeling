@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     Dialog,
     DialogContent,
@@ -9,6 +9,22 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 const UpdateBook = ({ bookId }) => {
+     const [formUpdateData,setformUpdateData]=React.useState({
+        bookName:"",
+        author:"",
+        status:""
+     })
+
+     function handleChange(event){
+        setformUpdateData((prev)=>{
+            return {
+                ...prev,
+                [event.target.name]:event.target.value
+            }
+        })
+     }
+
+     console.log(formUpdateData)
     return (
         <div>
             <Dialog>
@@ -25,21 +41,30 @@ const UpdateBook = ({ bookId }) => {
                             <Input
                                 type='text'
                                 placeholder='book name ...'
+                                name="bookName"
+                                onChange={handleChange}
+                                value={formUpdateData.bookName}
                             />
                             {/*  */}
                             <p>Author</p>
                             <Input
                                 type='text'
                                 placeholder='author ...'
+                                name="author"
+                                onChange={handleChange}
+                                value={formUpdateData.author}
                             />
                             <p>Status</p>
                             <select
-                                name=''
+                                name='status'
+                                value={formUpdateData.status}
+                                onChange={handleChange}
                                 id=''
                                 className='p-2 w-full rounded-sm'
-                            >
-                                <option value=''>In</option>
-                                <option value=''>Out</option>
+                            >   
+                                <option value="">choose</option>
+                                <option value='in'>In</option>
+                                <option value='out'>Out</option>
                             </select>
 
                             <p>Student carte id</p>

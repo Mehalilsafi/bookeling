@@ -20,56 +20,29 @@ import UpdateBook from './update-book';
 import { getlist } from '../actions/getlist';
 
 
-
-const booksFakeData = [
-    {
-        id: 'INV001',
-        bookName: 'intersteller',
-        author: 'christopher nolan',
-        status: 'out',
-    },
-    {
-        id: 'INV002',
-        bookName: 'inception',
-        author: 'christopher nolan',
-        status: 'in',
-    },
-    {
-        id: 'INV003',
-        bookName: 'shutter island',
-        author: 'hans zimer',
-        status: 'out',
-    },
-    {
-        id: 'INV004',
-        bookName: 'Green book',
-        author: 'hans zimer',
-        status: 'in',
-    },
-];
-
 const CustomTable = () => {
 
-    const [book,setBook]=useState();
+    const [book, setBook] = useState([]);
+
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const { book, error } = await getlist();
+            const { book: fetchedBook, error } = await getlist();
             if (error) {
               console.error('Error fetching data:', error.message);
             } else {
-              setBook(book);
+              setBook(fetchedBook);
             }
           } catch (error) {
             console.error('Unexpected error:', error.message);
           }
         };
-      
+    
         fetchData();
       }, []);
       
-
-   console.log(book)
+   
+      
     return (
        
         <Table className='mt-5'>
@@ -84,11 +57,12 @@ const CustomTable = () => {
                 </TableRow>
             </TableHeader>
             <TableBody>
+          
                 {
-                     booksFakeData.map((e) => (
+                     book.map((e) => (
                     <TableRow key={e.id}>
                         <TableCell className='font-medium'>{e.id}</TableCell>
-                        <TableCell>{e.bookName}</TableCell>
+                        <TableCell>{e.book_name}</TableCell>
                         <TableCell>{e.author}</TableCell>
                         <TableCell className=''>
                             <div
