@@ -18,12 +18,11 @@ import {
 } from '@/components/ui/table';
 import UpdateBook from './update-book';
 import { getlist } from '../actions/getlist';
-
+import { deletebook } from '../actions/deletebook';
 
 const CustomTable = () => {
 
     const [book, setBook] = useState([]);
-
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -41,8 +40,12 @@ const CustomTable = () => {
         fetchData();
       }, []);
       
-   
       
+      console.log(book)
+
+      function handleSubmit(){
+       
+      }
     return (
        
         <Table className='mt-5'>
@@ -78,9 +81,13 @@ const CustomTable = () => {
                         </TableCell>
 
                         <TableCell className='flex items-center space-x-4'>
+                            <form action='post' onSubmit={handleSubmit}>
+
                             <button className='py-3 px-5 bg-red-300 rounded-sm text-red-700 font-bold'>
                                 Delete
                             </button>
+
+                            </form>
                             <UpdateBook bookId={e.id} />
                         </TableCell>
                     </TableRow>

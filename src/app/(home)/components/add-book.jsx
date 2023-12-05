@@ -17,7 +17,8 @@ const AddBook = () => {
     
     const [formData,setFormData]= React.useState({
         bookName:"",
-        author:""
+        author:"",
+        status:"out"
      }) 
 
    function handleChange(event){
@@ -30,8 +31,9 @@ const AddBook = () => {
    }
 
 
-    function handleSubmit(){
-      addbook(formData)
+    function handleSubmit(event){
+      event.preventDefault()
+       addbook(formData)
      }
     return (
         <div>
@@ -45,6 +47,8 @@ const AddBook = () => {
                             Add New book to the library
                         </DialogTitle>
                         <DialogDescription className='space-y-3 '>
+                           <form action="post" onSubmit={handleSubmit}>
+
                             <p>Book Name</p>
                             <Input
                                 type='text'
@@ -66,10 +70,13 @@ const AddBook = () => {
                         
                             {/*  */}
                             <div className='pt-2'>
-                                <button className='py-2 px-5 bg-black w-full rounded-md text-white' onClick={handleSubmit}>
+                                <button className='py-2 px-5 bg-black w-full rounded-md text-white' >
                                     Submit
                                 </button>
                             </div>
+
+                                </form>
+
                         </DialogDescription>
                     </DialogHeader>
                 </DialogContent>

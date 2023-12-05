@@ -24,7 +24,7 @@ const UpdateBook = ({ bookId }) => {
         })
      }
 
-     console.log(formUpdateData)
+   
     return (
         <div>
             <Dialog>
