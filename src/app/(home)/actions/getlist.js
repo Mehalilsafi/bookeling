@@ -4,7 +4,7 @@ export async function getlist() {
     
    let { data: book, error } = await supabase
     .from('book')
-    .select('*')
+    .select()
     return { book, error };
 }
 

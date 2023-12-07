@@ -2,14 +2,18 @@
 
 import React from 'react'
 import supabase from '@/lib/supabase'
+import { revalidatePath } from 'next/cache';
+
+
 export async function addbook(formData) {
-    
     console.log("safi king "+formData)
-    const { data, error } = await supabase
+    await supabase
     .from('book')
     .insert([
     { book_name: formData.bookName, author: formData.author,status:formData.status },
   ])
-  .select()
+  
+
+  revalidatePath('/')
   
 }

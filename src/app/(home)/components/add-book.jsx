@@ -18,7 +18,7 @@ const AddBook = () => {
     const [formData,setFormData]= React.useState({
         bookName:"",
         author:"",
-        status:"out"
+        status:"in"
      }) 
 
    function handleChange(event){
