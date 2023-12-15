@@ -3,8 +3,16 @@ import React from 'react';
 import Table from './components/table';
 import HeroText from './components/hero-text';
 import AddBook from './components/add-book';
+import {readSession } from"@/lib/actions/index"
+import { redirect } from 'next/navigation';
 
-const page = () => {
+const  page =async () => {
+
+    const {data}  =await readSession()
+    console.log(data)
+     if(data.session){
+      return redirect("/(home)")
+     }
     return (
         <div className='p-6'>
             {/*  */}
