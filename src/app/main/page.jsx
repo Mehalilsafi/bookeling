@@ -13,14 +13,18 @@ import { Input } from '@/components/ui/Input';
 import LoginForm from './components/LoginForm.jsx'
 import {readSession } from"@/lib/actions/index"
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 // Import local assets
 import bookImage from '@/assets/Bookshop-rafiki.png';
 
 export default async function Page() {
 
-     const {data}  =await readSession()
-     if(data.session){
-      return redirect("/(home)")
+     const {data}  = await readSession()
+
+    console.log("data is here"+data)
+
+     if(data.session){                                                                                
+      return redirect("/")
      }
 
   return (
@@ -42,6 +46,7 @@ export default async function Page() {
               <FontAwesomeIcon icon={faGoogle} />
               <FontAwesomeIcon icon={faFacebook} />
               <FontAwesomeIcon icon={faTwitter} />
+            
             </div>
           </div>
         </div>

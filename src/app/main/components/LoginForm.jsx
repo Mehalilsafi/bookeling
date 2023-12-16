@@ -21,20 +21,15 @@ setFormmData((prev)=>{
     }
 }) 
    }
+   
      async function handlSubmit(){
-        let res =await rigester(formData)
-         const{error}=JSON.parse(res)
-         if (error){
-          console.log("rpeat again" )
-
-         }
-         else{
-          console.log("coongrat")
-         }     
+      console.log(formData)
+      //await rigester(formData)
+        
     }
   
     return (
-      <form action="" className='mt-6'>
+      <form action="" className='mt-6' >
         <p className='font-normal text-xs text-[#918A8A] mt-8'> User name</p>
         <Input type="text"
          className=" h-[31]"
