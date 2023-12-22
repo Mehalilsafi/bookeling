@@ -5,7 +5,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGoogle, faFacebook, faTwitter } from "@fortawesome/free-solid-svg-icons";
+
 
 // Import internal modules
 import Nav from './components/Nav';
@@ -21,8 +21,7 @@ export default async function Page() {
 
      const {data}  = await readSession()
 
-    console.log("data is here"+data)
-
+     console.log("data is here after singin"+ data.session)
      if(data.session){                                                                                
       return redirect("/")
      }
@@ -43,10 +42,9 @@ export default async function Page() {
           <div>
             <p className='flex justify-center mt-8 text-[#918A8A]'>Or use our social media to login</p>
             <div className='flex justify-center'>
-              <FontAwesomeIcon icon={faGoogle} />
-              <FontAwesomeIcon icon={faFacebook} />
-              <FontAwesomeIcon icon={faTwitter} />
-            
+         <p>safi</p> 
+         <p>safi</p>
+         <p>safi</p> 
             </div>
           </div>
         </div>

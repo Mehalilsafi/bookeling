@@ -8,7 +8,7 @@ export default function signeOut() {
     
     const logout=async ()=>{
         "use server"
-        const res =  supabase.auth.signOut
+        const res =  supabase.auth.signOut()
         redirect("/main")
         
     }

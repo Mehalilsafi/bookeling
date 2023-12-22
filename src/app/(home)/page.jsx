@@ -9,8 +9,10 @@ import SigneOut from './components/signeOut';
 const  page =async () => {
 
     const {data}  =await readSession()
-    console.log(data)
+    console.log("data is here befre signe in "+data)
+
      if(data.session){
+
       return redirect("/main")
      }
     return (
