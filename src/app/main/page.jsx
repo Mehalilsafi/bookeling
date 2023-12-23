@@ -21,7 +21,7 @@ export default async function Page() {
 
      const {data}  = await readSession()
 
-     console.log("data is here after singin"+ data.session)
+    
      if(data.session){                                                                                
       return redirect("/")
      }

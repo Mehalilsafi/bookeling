@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input';
 import { FormEvent,useState } from 'react';  
 import {signUpWithEmailAndPassword} from "@/app/main/actions/rigester"
 import { useForm } from "react-hook-form"
+import { data } from 'autoprefixer';
+import { User } from 'lucide-react';
 
 
 const LoginForm = () => {
@@ -14,11 +16,26 @@ const LoginForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     watch,
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => console.log(data)
+ 
+  const onSubmit = async (data) => {
+    console.log( "data is here befor send"+User )
+    let res = await signUpWithEmailAndPassword(data);
+    console.log("data after sign up " + data.password);
+    console.log("the result is here "+res )
+    if (!res || res.error) {
+      console.log("Something went wrong" );
+      return;
+    }
+  
+    reset();
+  };
+  
+   
 
   console.log(watch("email")) // watch input value by passing the name of it
     
