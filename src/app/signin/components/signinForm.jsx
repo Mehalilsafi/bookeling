@@ -5,13 +5,12 @@
 
 import { Input } from '@/components/ui/input';
 import { FormEvent,useState } from 'react';  
-import {signUpWithEmailAndPassword} from "@/app/main/actions/rigester"
 import { useForm } from "react-hook-form"
 import { data } from 'autoprefixer';
 import { User } from 'lucide-react';
 
 
-const LoginForm = () => {
+const signinForm = () => {
   
   const {
     register,
@@ -66,9 +65,9 @@ const LoginForm = () => {
         
   
         <button className='py-3 px-5 bg-[#6497b1] rounded-sm font-bold flex justify-center mt-8 text-[white] m-[auto] w-[150px]'  >
-          SignUp
+          SignIn 
         </button>
       </form>
     );
   };
-  export default LoginForm
+  export default signinForm

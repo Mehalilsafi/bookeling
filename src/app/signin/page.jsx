@@ -1,7 +1,3 @@
-
-
-
-// Import external libraries
 import React from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,12 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Import internal modules
 import Nav from './components/Nav';
 import { Input } from '@/components/ui/Input';
-import LoginForm from './components/LoginForm.jsx'
+import SigninForm from './components/signinForm.jsx'
 import {readSession } from"@/lib/actions/index"
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 // Import local assets
-import bookImage from '@/assets/Bookshop-rafiki.png';
+import bookImage from '@/assets/closed sign-rafiki.png';
+import { Import } from 'lucide-react';
 
 export default async function Page() {
 
@@ -37,11 +34,11 @@ export default async function Page() {
           alt="Picture of the author"
         />
         <div className='w-full p-7 bg-[#bbdcf0] rounded '>
-          <h1 className='flex justify-center font-normal text-xl'>Welcome!</h1>
-          <LoginForm />
-          
+          <h1 className='flex justify-center font-normal text-xl'>Welcome again !</h1>
+          <SigninForm />
+
           <div>
-          <Link href="/signin" className='flex justify-center w-full'> already have an account? <span>signin</span>  </Link>
+          <Link href="/main" className='flex justify-center w-full'> Don't have an account yet ?<span className=''>signUp</span> </Link>
           </div>
           <div>
             <p className='flex justify-center mt-8 text-[#918A8A]'>Or use our social media to login</p>
@@ -56,4 +53,3 @@ export default async function Page() {
     </div>
   );
 }
-
