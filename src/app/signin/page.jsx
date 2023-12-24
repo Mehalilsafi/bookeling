@@ -38,7 +38,7 @@ export default async function Page() {
           <SigninForm />
 
           <div>
-          <Link href="/main" className='flex justify-center w-full'> Don't have an account yet ?<span className=''>signUp</span> </Link>
+          <Link href="/main" className='flex justify-center w-full'> Don't have an account yet ?<span className='text-white'>signUp</span> </Link>
           </div>
           <div>
             <p className='flex justify-center mt-8 text-[#918A8A]'>Or use our social media to login</p>

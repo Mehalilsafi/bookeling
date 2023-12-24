@@ -1,7 +1,9 @@
 'use server'
 
-import supabase from "@/lib/supabase"
+import {createSupabaseServerClient} from "@/lib/supabase"
 export async function signUpWithEmailAndPassword({ email, password }) {
+
+      const supabase = await createSupabaseServerClient()
       console.log("email of the user is here in server action" + email);
     
       try {

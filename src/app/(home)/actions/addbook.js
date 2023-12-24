@@ -1,12 +1,13 @@
 "use server"
 
 import React from 'react'
-import supabase from '@/lib/supabase'
+import {createClientSupabase }from '@/lib/supabase'
 import { revalidatePath } from 'next/cache';
 
 
 export async function addbook(formData) {
     console.log("safi king "+formData)
+    const supabase = await createClientSupabase()
     await supabase
     .from('book')
     .insert([

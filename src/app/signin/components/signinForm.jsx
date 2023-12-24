@@ -5,9 +5,10 @@
 
 import { Input } from '@/components/ui/input';
 import { FormEvent,useState } from 'react';  
+import {singInWithEmailAndPassword} from '@/app/signin/actions/signin'
 import { useForm } from "react-hook-form"
-import { data } from 'autoprefixer';
-import { User } from 'lucide-react';
+
+
 
 
 const signinForm = () => {
@@ -22,9 +23,9 @@ const signinForm = () => {
 
  
   const onSubmit = async (data) => {
-    console.log( "data is here befor send"+User )
-    let res = await signUpWithEmailAndPassword(data);
-    console.log("data after sign up " + data.password);
+    
+    let res = await singInWithEmailAndPassword(data);
+    console.log("data after sign in " + data.password);
     console.log("the result is here "+res )
     if (!res || res.error) {
       console.log("Something went wrong" );

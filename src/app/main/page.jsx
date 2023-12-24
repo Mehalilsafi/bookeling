@@ -41,7 +41,7 @@ export default async function Page() {
           <LoginForm />
           
           <div>
-          <Link href="/signin" className='flex justify-center w-full'> already have an account? <span>signin</span>  </Link>
+          <Link href="/signin" className='flex justify-center w-full'> already have an account? <span className='text-white'>signin</span>  </Link>
           </div>
           <div>
             <p className='flex justify-center mt-8 text-[#918A8A]'>Or use our social media to login</p>

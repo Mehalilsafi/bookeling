@@ -1,7 +1,8 @@
  'use server'
-import supabase from '@/lib/supabase';
+import {createClientSupabase} from '@/lib/supabase';
 import { revalidatePath } from 'next/cache';
 export async function deletebook(id) {
+  const supabase = await createClientSupabase()
   const { error } = await supabase
     .from('book')
     .delete()
