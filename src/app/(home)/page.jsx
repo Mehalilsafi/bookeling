@@ -9,7 +9,7 @@ import SigneOut from './components/signeOut';
 const  page =async () => {
 
     const {data}  =await readSession()
-     if(!data.session){
+     if(data.session){
 
       return redirect("/main")
      }

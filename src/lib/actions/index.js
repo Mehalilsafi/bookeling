@@ -7,5 +7,5 @@ export async function readSession(){
     const supabase=  await createSupabaseServerClient()
      
     return supabase.auth.getSession()
-     
+    
 }

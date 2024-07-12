@@ -15,7 +15,7 @@ export async  function updatebok(bookId,book) {
     
       if (error) {
         console.error('Error updating book:', error.message);
-       
+    
       }
       revalidatePath('/')
    

@@ -22,7 +22,7 @@ export default async function Page() {
      const {data}  = await readSession()
 
     
-     if(data.session){                                                                                
+     if(!data.session){                                                                                
       return redirect("/")
      }
 
